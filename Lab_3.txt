@@ -1,0 +1,31 @@
+1)SELECT price FROM coputer1 WHERE price IS NUll OR price = 0
+2)SELECT title, price , counts FROM coputer1 WHERE (price IS NOT NULL) AND (counts IS NULL)
+3)SELECT title, dates FROM coputer1 WHERE dates IS NULL
+4)SELECT * FROM `coputer1` WHERE Year(dates) + 1 >= Year(CURRENT_DATE)
+5)SELECT title, new, price FROM coputer1 WHERE new = 'Yes'
+GROUP BY price
+ORDER BY price
+6)SELECT title, pages FROM coputer1 WHERE pages >= 300 AND pages <= 400
+GROUP BY title
+ORDER BY title DESC
+7)SELECT title, dates, price FROM coputer1 WHERE price >= 20 AND price <= 40
+GROUP BY dates
+ORDER BY UNIX_TIMESTAMP(STR_TO_DATE(dates, '%Y-%m-%d'))
+8)SELECT title, price FROM coputer1 GROUP BY dates, price ORDER BY UNIX_TIMESTAMP(STR_TO_DATE(dates, '%Y-%m-%d')), price
+9)SELECT title, price, pages FROM coputer1 WHERE (price*100)/pages < 10
+10)SELECT title, CHAR_LENGTH(title) FROM coputer1 |  SELECT title, UCASE(LEFT(title,20)) FROM coputer1	(NOT COMPLETED)
+11)SELECT title, CONCAT(LEFT(title,10),'...',RIGHT(title,10)) FROM coputer1
+12)SELECT title, dates, DAY(dates), MONTH(dates), YEAR(dates) FROM coputer1
+13)SELECT title, dates, date_format(dates,'%d/%m/%Y') FROM coputer1
+14)SELECT title, codes, price AS 'price USD', price*27.95 AS 'UAN',price*0.83 AS 'EUR' ,price*74.58 AS 'RUB' FROM coputer1
+15)SELECT title, codes, price AS 'price USD', ROUND(price*27.95) AS 'UAN ROUND',FLOOR(price*27.95) AS 'No cop UAN', price*27.95 AS 'UAN' FROM coputer1
+16)INSERT INTO lab_3.coputer1 (id,codes,new,title,price,production,pages,format,dates,counts,topic,category)
+VALUES ('7890','10050', 'Yes', 'Програмування на PHP для початківців', 13, 'PHP production', 245, '70x100/16', '2020-02-03', 5000, 'Програмування', 'Навчальний посібник')
+17)---------------------------------------------
+18)DELETE FROM coputer1 WHERE Year(dates) <=1990
+19)UPDATE coputer1
+SET dates = '2000-01-01'
+WHERE dates IS NULL
+20)UPDATE coputer1
+SET new = 'Yes'
+WHERE Year(dates) >= 2005
